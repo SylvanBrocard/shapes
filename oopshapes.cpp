@@ -41,24 +41,3 @@ f32 TotalAreaVTBL4(u32 ShapeCount, shape_base **Shapes)
     f32 Result = (Accum0 + Accum1 + Accum2 + Accum3);
     return Result;
 }
-
-int main()
-{
-    square Square(2.0f);
-    rectangle Rectangle(2.0f, 3.0f);
-    triangle Triangle(2.0f, 3.0f);
-    circle Circle(2.0f);
-    
-    shape_base *Shapes[] =
-    {
-        &Square,
-        &Rectangle,
-        &Triangle,
-        &Circle,
-    };
-    
-    f32 TotalArea = TotalAreaVTBL(4, Shapes);
-    printf("Total area: %f\n", TotalArea);
-
-    return 0;
-}

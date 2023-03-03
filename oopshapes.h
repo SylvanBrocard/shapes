@@ -51,3 +51,5 @@ public:
 private:
     f32 Radius;
 };
+
+f32 TotalAreaVTBL(u32 ShapeCount, shape_base **Shapes);

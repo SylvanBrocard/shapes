@@ -4,13 +4,16 @@
 
 #include "oopshapes.h"
 
-class ShapesFixture : public benchmark::Fixture {
+class OOPShapesFixture : public benchmark::Fixture {
 public:
-  u32 ShapeCount = 1e8;
-  shape_base **Shapes = new shape_base *[ShapeCount];
+  u32 ShapeCount = 1e7;
+  shape_base **Shapes;
 
   void SetUp(const ::benchmark::State &state) {
-    srand(time(NULL));
+    Shapes = new shape_base *[ShapeCount];
+    timespec* tp;
+    clock_gettime(CLOCK_REALTIME, tp);
+    srand(tp->tv_nsec);
     #pragma omp simd
     for (u32 ShapeIndex = 0; ShapeIndex < ShapeCount; ++ShapeIndex) {
         u32 ShapeType = rand() % 4;
@@ -49,18 +52,16 @@ public:
     for (u32 ShapeIndex = 0; ShapeIndex < ShapeCount; ++ShapeIndex) {
       delete Shapes[ShapeIndex];
     }
+    delete[] Shapes;
   }
 };
 
-BENCHMARK_DEFINE_F(ShapesFixture, TotalAreaVTBL)(benchmark::State &state) {
+BENCHMARK_DEFINE_F(OOPShapesFixture, TotalAreaVTBL)(benchmark::State &state) {
   for (auto _ : state) {
-    f32 Accum = 0.0f;
-    for (u32 ShapeIndex = 0; ShapeIndex < ShapeCount; ++ShapeIndex) {
-      Accum += Shapes[ShapeIndex]->Area();
-    }
+    auto Accum = TotalAreaVTBL(ShapeCount, Shapes);
     std::cout << Accum << std::endl;
   }
 }
-BENCHMARK_REGISTER_F(ShapesFixture, TotalAreaVTBL)->UseRealTime()->Unit(benchmark::kSecond);
+BENCHMARK_REGISTER_F(OOPShapesFixture, TotalAreaVTBL)->UseRealTime()->Unit(benchmark::kSecond);
 
 BENCHMARK_MAIN();
