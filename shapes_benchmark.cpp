@@ -6,11 +6,12 @@
 
 class ShapesFixture : public benchmark::Fixture {
 public:
-  u32 ShapeCount = 1e7;
+  u32 ShapeCount = 1e8;
   shape_base **Shapes = new shape_base *[ShapeCount];
 
   void SetUp(const ::benchmark::State &state) {
     srand(time(NULL));
+    #pragma omp simd
     for (u32 ShapeIndex = 0; ShapeIndex < ShapeCount; ++ShapeIndex) {
         u32 ShapeType = rand() % 4;
         switch(ShapeType)
