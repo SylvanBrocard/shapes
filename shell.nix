@@ -4,8 +4,11 @@ pkgs.mkShell {
   nativeBuildInputs = [
     # executables
     cmake
+    ninja
     clang-tools
     gcc
-    clang_15
+    llvmPackages.bintools
+    llvmPackages.openmp
+    llvmPackages.clang
   ];
 }

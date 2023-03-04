@@ -17,4 +17,4 @@ struct shape_union
     f32 Height;
 };
 
-f32 GetAreaSwitch(shape_union Shape);
+f32 TotalAreaSwitch(u32 ShapeCount, shape_union* Shape);

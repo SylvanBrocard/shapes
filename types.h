@@ -1,3 +1,5 @@
+#pragma once
+
 #include <stdint.h>
 
 using f32 = float;

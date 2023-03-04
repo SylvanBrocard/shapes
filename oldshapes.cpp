@@ -4,7 +4,7 @@
    LISTING 25
    ======================================================================== */
 
-f32 GetAreaSwitch(shape_union Shape)
+static f32 GetAreaSwitch(shape_union Shape)
 {
     f32 Result = 0.0f;
     
@@ -19,4 +19,15 @@ f32 GetAreaSwitch(shape_union Shape)
     }
     
     return Result;
+}
+
+f32 TotalAreaSwitch(u32 ShapeCount, shape_union* Shape)
+{
+    f32 Accum = 0.0f;
+    for(u32 ShapeIndex = 0; ShapeIndex < ShapeCount; ++ShapeIndex)
+    {
+        Accum += GetAreaSwitch(Shape[ShapeIndex]);
+    }
+    
+    return Accum;
 }
