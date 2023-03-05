@@ -67,4 +67,4 @@ BENCHMARK_DEFINE_F(OOPShapesFixture, TotalAreaVTBL)
     benchmark::DoNotOptimize(Accum);
   }
 }
-BENCHMARK_REGISTER_F(OOPShapesFixture, TotalAreaVTBL)->UseRealTime()->Unit(benchmark::kMillisecond)->Setup(DoSetup);
+BENCHMARK_REGISTER_F(OOPShapesFixture, TotalAreaVTBL)->Unit(benchmark::kMillisecond)->Setup(DoSetup);
