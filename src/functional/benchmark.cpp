@@ -61,4 +61,4 @@ BENCHMARK_DEFINE_F(FunShapesFixture, TotalAreaFunc)
     benchmark::DoNotOptimize(Accum);
   }
 }
-BENCHMARK_REGISTER_F(FunShapesFixture, TotalAreaFunc)->UseRealTime()->Unit(benchmark::kSecond)->Setup(DoSetup);
+BENCHMARK_REGISTER_F(FunShapesFixture, TotalAreaFunc)->UseRealTime()->Unit(benchmark::kMillisecond)->Setup(DoSetup);

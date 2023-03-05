@@ -62,4 +62,4 @@ BENCHMARK_DEFINE_F(CleanerOOPShapesFixture, TotalAreaVTBLClean)
     benchmark::DoNotOptimize(Accum);
   }
 }
-BENCHMARK_REGISTER_F(CleanerOOPShapesFixture, TotalAreaVTBLClean)->UseRealTime()->Unit(benchmark::kSecond)->Setup(DoSetup);
+BENCHMARK_REGISTER_F(CleanerOOPShapesFixture, TotalAreaVTBLClean)->UseRealTime()->Unit(benchmark::kMillisecond)->Setup(DoSetup);

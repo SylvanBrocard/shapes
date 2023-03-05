@@ -73,4 +73,4 @@ BENCHMARK_DEFINE_F(OldShapesFixture, TotalAreaSwitch)
   }
 }
 
-BENCHMARK_REGISTER_F(OldShapesFixture, TotalAreaSwitch)->UseRealTime()->Unit(benchmark::kSecond)->Setup(DoSetup);
+BENCHMARK_REGISTER_F(OldShapesFixture, TotalAreaSwitch)->UseRealTime()->Unit(benchmark::kMillisecond)->Setup(DoSetup);
