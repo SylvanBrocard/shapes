@@ -43,4 +43,4 @@ private:
 
 using fun_shape=std::variant<fun_square, fun_rectangle, fun_triangle, fun_circle>;
 
-f32 TotalAreaFunc(u32 ShapeCount, std::vector<fun_shape> Shapes);
+f32 TotalAreaFunc(u32 ShapeCount, std::vector<fun_shape>& Shapes);
