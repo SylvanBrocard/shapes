@@ -3,7 +3,9 @@
 #include <stdint.h>
 #include <benchmark/benchmark.h>
 
-#define PARALLEL 1
+#ifndef PARALLEL
+#define PARALLEL 0
+#endif
 
 using f32 = float;
 using u32 = uint32_t;
