@@ -18,6 +18,7 @@ Build with cmake. The files are `shapes_benchmark` and `shapes_benchmark_paralle
  - **cstyle**: The first implementation of C-style code showed in the vide
  - **cleaneroop**: A modernized version of the OOP code
  - **functional**: A functional approach using variants
+ - **soa**: A struct of arrays approach
 
 ## Results
 
@@ -29,10 +30,11 @@ Build with cmake. The files are `shapes_benchmark` and `shapes_benchmark_paralle
 -------------------------------------------------------------------------------------
 Benchmark                                           Time             CPU   Iterations
 -------------------------------------------------------------------------------------
-OOPShapesFixture/TotalAreaVTBL                    204 ms          204 ms            3
-FunShapesFixture/TotalAreaFunc                    103 ms          103 ms            7
-OldShapesFixture/TotalAreaSwitch                  107 ms          107 ms            7
-CleanerOOPShapesFixture/TotalAreaVTBLClean        209 ms          209 ms            4
+SoAShapesFixture/TotalAreaSoA                    24.8 ms         24.8 ms           42
+OOPShapesFixture/TotalAreaVTBL                    203 ms          203 ms            3
+FunShapesFixture/TotalAreaFunc                    102 ms          102 ms            7
+OldShapesFixture/TotalAreaSwitch                  111 ms          111 ms            6
+CleanerOOPShapesFixture/TotalAreaVTBLClean        208 ms          208 ms            4
 ```
 
 #### Parallel
@@ -41,10 +43,11 @@ CleanerOOPShapesFixture/TotalAreaVTBLClean        209 ms          209 ms        
 -------------------------------------------------------------------------------------
 Benchmark                                           Time             CPU   Iterations
 -------------------------------------------------------------------------------------
-OOPShapesFixture/TotalAreaVTBL                   15.8 ms         15.7 ms           34
-FunShapesFixture/TotalAreaFunc                   4.39 ms         4.39 ms          159
-OldShapesFixture/TotalAreaSwitch                 4.77 ms         4.77 ms          105
-CleanerOOPShapesFixture/TotalAreaVTBLClean       17.3 ms         17.3 ms           37
+SoAShapesFixture/TotalAreaSoA                    6.22 ms         6.22 ms          100
+OOPShapesFixture/TotalAreaVTBL                   10.8 ms         10.7 ms           52
+FunShapesFixture/TotalAreaFunc                   4.29 ms         4.29 ms          161
+OldShapesFixture/TotalAreaSwitch                 4.87 ms         4.87 ms          137
+CleanerOOPShapesFixture/TotalAreaVTBLClean       11.0 ms         11.0 ms           57
 ```
 
 ### Clang 15
@@ -55,10 +58,11 @@ CleanerOOPShapesFixture/TotalAreaVTBLClean       17.3 ms         17.3 ms        
 -------------------------------------------------------------------------------------
 Benchmark                                           Time             CPU   Iterations
 -------------------------------------------------------------------------------------
-CleanerOOPShapesFixture/TotalAreaVTBLClean        221 ms          221 ms            3
-OldShapesFixture/TotalAreaSwitch                  134 ms          134 ms            5
-FunShapesFixture/TotalAreaFunc                    133 ms          133 ms            5
-OOPShapesFixture/TotalAreaVTBL                    210 ms          210 ms            3
+CleanerOOPShapesFixture/TotalAreaVTBLClean        220 ms          220 ms            3
+OldShapesFixture/TotalAreaSwitch                  135 ms          135 ms            5
+FunShapesFixture/TotalAreaFunc                    134 ms          134 ms            5
+OOPShapesFixture/TotalAreaVTBL                    209 ms          209 ms            3
+SoAShapesFixture/TotalAreaSoA                    23.3 ms         23.3 ms           45
 ```
 
  #### Parallel
@@ -67,8 +71,9 @@ OOPShapesFixture/TotalAreaVTBL                    210 ms          210 ms        
 -------------------------------------------------------------------------------------
 Benchmark                                           Time             CPU   Iterations
 -------------------------------------------------------------------------------------
-CleanerOOPShapesFixture/TotalAreaVTBLClean       16.6 ms         16.6 ms           33
-OldShapesFixture/TotalAreaSwitch                 5.00 ms         5.00 ms          112
-FunShapesFixture/TotalAreaFunc                   4.66 ms         4.66 ms          118
-OOPShapesFixture/TotalAreaVTBL                   10.2 ms         10.2 ms           64
+CleanerOOPShapesFixture/TotalAreaVTBLClean       11.5 ms         11.5 ms           61
+OldShapesFixture/TotalAreaSwitch                 4.89 ms         4.89 ms          114
+FunShapesFixture/TotalAreaFunc                   4.14 ms         4.13 ms          162
+OOPShapesFixture/TotalAreaVTBL                   14.3 ms         14.3 ms           50
+SoAShapesFixture/TotalAreaSoA                    6.55 ms         6.55 ms          100
 ```
