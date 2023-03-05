@@ -7,6 +7,10 @@
 
 constexpr u32 ShapeCount = 1e7;
 
+static void DoSetup(const benchmark::State& state) {
+    srand(0);
+}
+
 class OOPShapesFixture : public benchmark::Fixture
 {
 public:
@@ -17,7 +21,6 @@ public:
     Shapes = new shape_base *[ShapeCount];
     // timespec *tp;
     // clock_gettime(CLOCK_REALTIME, tp);
-    srand(0);
 // #pragma omp simd
     for (u32 ShapeIndex = 0; ShapeIndex < ShapeCount; ++ShapeIndex)
     {
@@ -76,7 +79,7 @@ BENCHMARK_DEFINE_F(OOPShapesFixture, TotalAreaVTBL)
     std::cout << Accum << std::endl;
   }
 }
-BENCHMARK_REGISTER_F(OOPShapesFixture, TotalAreaVTBL)->UseRealTime()->Unit(benchmark::kSecond);
+BENCHMARK_REGISTER_F(OOPShapesFixture, TotalAreaVTBL)->UseRealTime()->Unit(benchmark::kSecond)->Setup(DoSetup);
 
 class OldShapesFixture : public benchmark::Fixture
 {
@@ -152,6 +155,6 @@ BENCHMARK_DEFINE_F(OldShapesFixture, TotalAreaSwitch)
   }
 }
 
-BENCHMARK_REGISTER_F(OldShapesFixture, TotalAreaSwitch)->UseRealTime()->Unit(benchmark::kSecond);
+BENCHMARK_REGISTER_F(OldShapesFixture, TotalAreaSwitch)->UseRealTime()->Unit(benchmark::kSecond)->Setup(DoSetup);
 
 BENCHMARK_MAIN();
