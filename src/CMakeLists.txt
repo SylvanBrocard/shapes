@@ -1,6 +1,7 @@
 set(EXPORT_COMPILE_COMMANDS ON)
 
 list(APPEND CMAKE_CXX_LINK_FLAGS "-ltbb")
+find_package(OpenMP)
 
 file(GLOB_RECURSE benchmark_source_list "*.cpp")
 message(STATUS "benchmark_source_list: ${benchmark_source_list}")
@@ -14,4 +15,4 @@ else()
 endif()
 set_property(TARGET shapes_benchmark PROPERTY CXX_STANDARD 17)
 
-target_link_libraries(shapes_benchmark PUBLIC benchmark::benchmark)
+target_link_libraries(shapes_benchmark PUBLIC benchmark::benchmark OpenMP::OpenMP_CXX)
