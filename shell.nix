@@ -7,8 +7,8 @@ pkgs.mkShell {
     ninja
     clang-tools
     gcc
-    llvmPackages.bintools
-    llvmPackages.openmp
-    llvmPackages.clang
+    llvmPackages_15.bintools
+    llvmPackages_15.openmp
+    llvmPackages_15.clang
   ];
 }
