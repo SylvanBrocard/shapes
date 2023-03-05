@@ -1,6 +1,6 @@
 set(EXPORT_COMPILE_COMMANDS ON)
 
-list(APPEND CMAKE_CXX_LINK_FLAGS "-ltbb")
+set(CMAKE_CXX_LINK_FLAGS "${CMAKE_CXX_LINK_FLAGS} -ltbb")
 find_package(OpenMP)
 
 file(GLOB_RECURSE benchmark_source_list "*.cpp")

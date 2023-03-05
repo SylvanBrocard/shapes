@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.9.0)
 project(shapes VERSION 0.1.0)
 
 if( ${CMAKE_CXX_COMPILER} MATCHES ".*clang.*" )
-    list(APPEND CMAKE_CXX_LINK_FLAGS "-fuse-ld=lld")
+    set(CMAKE_CXX_LINK_FLAGS "${CMAKE_CXX_LINK_FLAGS} -fuse-ld=lld")
 endif()
 
 include(CTest)
