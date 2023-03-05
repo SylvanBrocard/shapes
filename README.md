@@ -77,3 +77,10 @@ FunShapesFixture/TotalAreaFunc                   4.14 ms         4.13 ms        
 OOPShapesFixture/TotalAreaVTBL                   14.3 ms         14.3 ms           50
 SoAShapesFixture/TotalAreaSoA                    6.55 ms         6.55 ms          100
 ```
+
+## Conclusions
+
+Virtual tables are a red herring. It's mostly about how your data is laid out in memory.  
+The difference between the OOP approaches on one side and the Imperative and Functional approches on the other, is that the OOP codes iterate over a table of heap-allocated pointers to structs, while the Imperative and Functional iterate over an array of structs.
+
+Worrying about OOP vs. Imperative vs. Functional makes us miss the forest for tree: it is much more important to have your data laid out in Structs of Arrays to take advantage of the prefetcher, and to avoid branching.
