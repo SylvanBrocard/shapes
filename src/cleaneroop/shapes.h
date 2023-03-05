@@ -1,3 +1,4 @@
+#include <memory>
 #include "../common.h"
 
 class clean_shape_base
@@ -48,4 +49,4 @@ private:
     f32 Radius;
 };
 
-f32 TotalAreaVTBLClean(u32 ShapeCount, clean_shape_base **Shapes);
+f32 TotalAreaVTBLClean(u32 ShapeCount, std::vector<std::unique_ptr<clean_shape_base>>& Shapes);

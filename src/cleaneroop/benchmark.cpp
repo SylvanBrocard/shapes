@@ -4,11 +4,10 @@
 class CleanerOOPShapesFixture : public benchmark::Fixture
 {
 public:
-  clean_shape_base **Shapes;
+  std::vector<std::unique_ptr<clean_shape_base>> Shapes;
 
   void SetUp(const ::benchmark::State &state)
   {
-    Shapes = new clean_shape_base *[ShapeCount];
 // #pragma omp simd
     for (u32 ShapeIndex = 0; ShapeIndex < ShapeCount; ++ShapeIndex)
     {
@@ -18,7 +17,7 @@ public:
       case 0:
       {
         f32 Side = rand() % 100;
-        Shapes[ShapeIndex] = new clean_square(Side);
+        Shapes.emplace_back(std::make_unique<clean_square>(Side));
       }
       break;
 
@@ -26,7 +25,7 @@ public:
       {
         f32 Width = rand() % 100;
         f32 Height = rand() % 100;
-        Shapes[ShapeIndex] = new clean_rectangle(Width, Height);
+        Shapes.emplace_back(std::make_unique<clean_rectangle>(Width, Height));
       }
       break;
 
@@ -34,14 +33,14 @@ public:
       {
         f32 Base = rand() % 100;
         f32 Height = rand() % 100;
-        Shapes[ShapeIndex] = new clean_triangle(Base, Height);
+        Shapes.emplace_back(std::make_unique<clean_triangle>(Base, Height));
       }
       break;
 
       case 3:
       {
         f32 Radius = rand() % 100;
-        Shapes[ShapeIndex] = new clean_circle(Radius);
+        Shapes.emplace_back(std::make_unique<clean_circle>(Radius));
       }
       break;
       }
@@ -50,11 +49,7 @@ public:
 
   void TearDown(const ::benchmark::State &state)
   {
-    for (u32 ShapeIndex = 0; ShapeIndex < ShapeCount; ++ShapeIndex)
-    {
-      delete Shapes[ShapeIndex];
-    }
-    delete[] Shapes;
+    Shapes.clear();
   }
 };
 

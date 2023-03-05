@@ -10,5 +10,6 @@ pkgs.mkShell {
     llvmPackages_15.bintools
     llvmPackages_15.openmp
     llvmPackages_15.clang
+    tbb
   ];
 }

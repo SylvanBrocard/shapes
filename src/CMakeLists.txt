@@ -1,5 +1,7 @@
 set(EXPORT_COMPILE_COMMANDS ON)
 
+list(APPEND CMAKE_CXX_LINK_FLAGS "-ltbb")
+
 file(GLOB_RECURSE benchmark_source_list "*.cpp")
 message(STATUS "benchmark_source_list: ${benchmark_source_list}")
 add_executable(shapes_benchmark ${benchmark_source_list})
