@@ -24,6 +24,9 @@ static f32 GetAreaSwitch(shape_union Shape)
 f32 TotalAreaSwitch(u32 ShapeCount, shape_union* Shape)
 {
     f32 Accum = 0.0f;
+    #if PARALLEL
+    #pragma omp parallel for reduction(+:Accum)
+    #endif
     for(u32 ShapeIndex = 0; ShapeIndex < ShapeCount; ++ShapeIndex)
     {
         Accum += GetAreaSwitch(Shape[ShapeIndex]);
