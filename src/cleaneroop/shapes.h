@@ -9,7 +9,7 @@ public:
     virtual ~clean_shape_base() {}
 };
 
-class clean_square : public clean_shape_base
+class clean_square final : public clean_shape_base
 {
 public:
     explicit clean_square(f32 SideInit) : Side(SideInit) {}
@@ -19,7 +19,7 @@ private:
     f32 Side;
 };
 
-class clean_rectangle : public clean_shape_base
+class clean_rectangle final : public clean_shape_base
 {
 public:
     explicit clean_rectangle(f32 WidthInit, f32 HeightInit) : Width(WidthInit), Height(HeightInit) {}
@@ -29,7 +29,7 @@ private:
     f32 Width, Height;
 };
 
-class clean_triangle : public clean_shape_base
+class clean_triangle final : public clean_shape_base
 {
 public:
     explicit clean_triangle(f32 BaseInit, f32 HeightInit) : Base(BaseInit), Height(HeightInit) {}
@@ -39,7 +39,7 @@ private:
     f32 Base, Height;
 };
 
-class clean_circle : public clean_shape_base
+class clean_circle final : public clean_shape_base
 {
 public:
     explicit clean_circle(f32 RadiusInit) : Radius(RadiusInit) {}
