@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "oopshapes.h"
+#include "shapes.h"
 
 /* ========================================================================
    LISTING 23

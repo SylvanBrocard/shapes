@@ -17,7 +17,7 @@ add_subdirectory(benchmark)
 
 set(EXPORT_COMPILE_COMMANDS ON)
 
-add_executable(boomershapes_benchmark shapes_benchmark.cpp oopshapes.cpp oldshapes.cpp)
+add_executable(boomershapes_benchmark shapes_benchmark.cpp oop/shapes.cpp cstyle/shapes.cpp)
 
 if( supported )
     message(STATUS "IPO / LTO enabled")

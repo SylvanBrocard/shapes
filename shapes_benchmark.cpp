@@ -2,8 +2,8 @@
 
 #include <benchmark/benchmark.h>
 
-#include "oopshapes.h"
-#include "oldshapes.h"
+#include "oop/shapes.h"
+#include "cstyle/shapes.h"
 
 constexpr u32 ShapeCount = 1e7;
 
